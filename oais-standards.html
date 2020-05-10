@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <style>
+
+    body {
+      width: 80%;
+      height: 80%;
+    }
+
+  </style>
+  <link rel="stylesheet" href="plugin/diagram/revealjs-diagram.css">
+</head>
+<body>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="plugin/diagram/revealjs-diagram.js"></script>
+  <script>
+
+var treeData = {
+      name: 'NTC/ISO-14721',
+      x0: window.diagram.height / 2,
+      y0: 1,
+      children: []
+    };
+
+    var _transitions = [
+      window.diagram.addItem('NTC/ISO-20652', 'NTC/ISO-14721', treeData),
+      window.diagram.addItem('NTC/ISO-16363', 'NTC/ISO-14721', treeData),
+      window.diagram.addItem('NTC/ISO-20104', 'NTC/ISO-14721', treeData),
+      window.diagram.addItem('NTC/ISO-15489-1', 'NTC/ISO-16363', treeData),
+      window.diagram.addItem('ISO-16919', 'NTC/ISO-16363', treeData),
+      window.diagram.addItem('NTC/ISO-9001', 'NTC/ISO-16363', treeData),
+      window.diagram.addItem('NTC/ISO-27000', 'NTC/ISO-16363', treeData),
+      window.diagram.addItem('NTC/ISO-17068', 'NTC/ISO-16363', treeData),
+      window.diagram.addItem('NTC/ISO-17799', 'NTC/ISO-16363', treeData)
+      // window.diagram.addLink('child 1', 'tail', treeData),
+      //window.diagram.addLink('OTROOO', 'NTC/ISO-16363', treeData)
+    ];
+
+    var _inverse_transitions = [
+      window.diagram.removeItem('NTC/ISO-20652', treeData),
+      window.diagram.removeItem('NTC/ISO-16363', treeData),
+      window.diagram.removeItem('NTC/ISO-20104', treeData),
+      window.diagram.removeItem('NTC/ISO-15489-1', treeData),
+      window.diagram.removeItem('ISO-16919', treeData),
+      window.diagram.removeItem('NTC/ISO-9001', treeData),
+      window.diagram.removeItem('NTC/ISO-27000', treeData),
+      window.diagram.removeItem('NTC/ISO-17068', treeData),
+      window.diagram.removeItem('NTC/ISO-17799', treeData)
+      // window.diagram.removeLink('child 1', 'tail', treeData),
+      // window.diagram.removeLink('child 3', 'tail', treeData)
+    ];
+
+    // start the tree
+    window.diagram.register('closed', function() {
+      window.diagram.init(treeData);
+    });
+  </script>
+</body>
